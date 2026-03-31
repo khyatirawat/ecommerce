@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="top-bar">
+    <form method="GET" class="filters">
+        <input type="hidden" name="category" value="{{ request.args.get('category') }}">
+        <input type="text" name="search" value="{{ request.args.get('search', '') }}" placeholder="Search products...">
+        <select name="sort">
+            <option value="">Sort</option>
+            <option value="price_asc" {% if request.args.get('sort') == 'price_asc' %}selected{% endif %}>Price Low → High</option>
+            <option value="price_desc" {% if request.args.get('sort') == 'price_desc' %}selected{% endif %}>Price High → Low</option>
+        </select>
+        <button type="submit">Apply</button>
+    </form>
+
+    <button class="back-btn" onclick="window.location.href='/'">Back</button>
+</div>
+
+<div class="products">
+    {% if products %}
+        {% for product in products %}
+            <div class="card">
+                <div class="img-box">
+                    <img src="{{ url_for('static', filename=product.image_url) }}">
+                </div>
+                <div class="card-body">
+                    <h3>{{ product.product_name }}</h3>
+                    <p class="desc">{{ product.descrip }}</p>
+                    <p class="price">₹{{ product.price }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-products">No products found</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

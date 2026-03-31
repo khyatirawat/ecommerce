@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+<h1 class="page-title">Choose a Category</h1>
+
+<div class="container">
+    <a href="/products?category=1" class="card">
+        <img src="{{ url_for('static', filename='images/books.png') }}">
+        <h3>Books</h3>
+    </a>
+
+    <a href="/products?category=2" class="card">
+        <img src="{{ url_for('static', filename='images/clothes.jpeg') }}">
+        <h3>Clothes</h3>
+    </a>
+
+    <a href="/products?category=3" class="card">
+        <img src="{{ url_for('static', filename='images/groceries.jpeg') }}">
+        <h3>Groceries</h3>
+    </a>
+
+    <a href="/products?category=4" class="card">
+        <img src="{{ url_for('static', filename='images/toys.jpg') }}">
+        <h3>Toys</h3>
+    </a>
+
+    <a href="/products?category=5" class="card">
+        <img src="{{ url_for('static', filename='images/accessories.jpg') }}">
+        <h3>Accessories</h3>
+    </a>
+
+    <a href="/products?category=6" class="card">
+        <img src="{{ url_for('static', filename='images/home_appliances.jpg') }}">
+        <h3>Home Appliances</h3>
+    </a>
+</div>
+
+</body>
+</html>
